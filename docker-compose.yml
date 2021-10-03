@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  flask:
+    build: 
+      context: .
+      target: runner
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
+    environment:
+      FLASK_ENV: development
+
+  test:
+    profiles: ["test"]
+    build: 
+      context: .
+      target: tester
+    volumes:
+      - .:/code
