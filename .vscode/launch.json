@@ -22,7 +22,7 @@
             "name": "Python Attach",
             "type": "python",
             "request": "attach",
-            "preLaunchTask": "docker-compose: debug",
+            // "preLaunchTask": "docker-compose: debug",
             "pathMappings": [
                 {
                     "localRoot": "${workspaceFolder}",
