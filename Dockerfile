@@ -13,13 +13,13 @@ CMD flask run -h 0.0.0.0 -p 5000
 
 ###### DEBUGGER ######
 FROM builder as debugger
-RUN pip install ptvsd
+RUN pip install debugpy
 
 WORKDIR /code/
-CMD python -m ptvsd --host 0.0.0.0 --port 5678 --wait --multiprocess -m flask run -h 0.0.0.0 -p 5000
+CMD python -m debugpy --listen 0.0.0.0:5678 --wait-for-client -m flask run -h 0.0.0.0 -p 5000
 
 ###### TESTER ######
 FROM builder as tester
 COPY requirements-test.txt requirements-test.txt
 RUN pip install -r requirements-test.txt
-CMD ["pytest"]
+CMD pytest

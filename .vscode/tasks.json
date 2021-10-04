@@ -1,0 +1,44 @@
+{
+    "tasks": [
+        {
+            "group": "test",
+            "type": "docker-compose",
+            "label": "docker-compose: test",
+            "dockerCompose": {
+                "up": {
+                    "services": [
+                        "test"
+                    ]
+                },
+                "files": [
+                    "${workspaceFolder}/docker-compose.yml"
+                ],
+            }
+        },
+        {
+            "type": "docker-compose",
+            "label": "docker-compose: debug",
+            "dockerCompose": {
+                "up": {
+                    "build": true,
+                    "services": [
+                        "debug"
+                    ]
+                },
+                "files": [
+                    "${workspaceFolder}/docker-compose.yml"
+                ],
+            }
+        },
+        {
+            "type": "docker-compose",
+            "label": "docker-compose: down",
+            "dockerCompose": {
+                "down": {},
+                "files": [
+                    "${workspaceFolder}/docker-compose.yml"
+                ],
+            }
+        }
+    ]
+}

@@ -27,5 +27,7 @@ services:
     build: 
       context: .
       target: tester
+    ports:
+      - 5678:5678
     volumes:
       - .:/code
