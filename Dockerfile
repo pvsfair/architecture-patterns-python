@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 FROM python:3.8-alpine as builder
 WORKDIR /code
-RUN apk add gcc musl-dev linux-headers
+RUN apk add gcc musl-dev linux-headers g++
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 COPY . .
