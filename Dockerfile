@@ -22,4 +22,5 @@ CMD python -m debugpy --listen 0.0.0.0:5678 --wait-for-client -m flask run -h 0.
 FROM builder as tester
 COPY requirements-test.txt requirements-test.txt
 RUN pip install -r requirements-test.txt
-CMD pytest
+RUN apk add entr
+CMD pytest --tb=short
