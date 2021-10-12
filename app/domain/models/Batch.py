@@ -47,3 +47,6 @@ class Batch:
         if o.eta is None:
             return True
         return self.eta > o.eta
+
+    def __repr__(self):
+        return f"<Batch {self.reference}>"
